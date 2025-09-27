@@ -100,7 +100,11 @@
         <div id="rfid" class="sensor-box">Last RFID: None</div>
     </div>
 
+    <div style="display:flex; gap:15px; margin-top:20px;">
     <button id="arm-btn" onclick="toggleSecurity()">Arm System</button>
+    <button id="logs-btn" onclick="window.location.href='/logs'">View Logs</button>
+    </div>
+
 
     <script>
         let armed = false;
