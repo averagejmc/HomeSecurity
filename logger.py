@@ -1,5 +1,6 @@
 import sqlite3
 
+
 # Initialize database + table if not exists
 def init_db():
     conn = sqlite3.connect("security.db")
@@ -15,17 +16,19 @@ def init_db():
     conn.commit()
     conn.close()
 
+
 # Function to log an event
 def log_event(event_type, message):
     conn = sqlite3.connect("security.db")
     c = conn.cursor()
     c.execute(
         "INSERT INTO logs (event_type, message, timestamp) VALUES (?, ?, datetime('now'))",
-        (event_type, message)
+        (event_type, message),
     )
     conn.commit()
     conn.close()
     print(f"📒 Logged: {event_type} - {message}")
+
 
 # Run init on import
 init_db()

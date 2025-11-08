@@ -31,7 +31,7 @@ except TypeError:
 
 client.connect("localhost", 1883, 60)  # Broker runs on this machine
 
-client.subscribe("home/#")   # Subscribe to all home topics
+client.subscribe("home/#")  # Subscribe to all home topics
 client.on_message = on_message
 
 print("Listening to MQTT topics...")

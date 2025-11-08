@@ -17,6 +17,7 @@ ALERT_DELAY_SECONDS = 10
 TELEGRAM_TOKEN = "7830410011:AAGqiLow-xTWLSzsQDstVh_D-xkSBNmtzYQ"
 CHAT_ID = "1265206769"
 
+
 # ---------------- Alert + RFID ----------------
 def send_alert(message):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
@@ -29,14 +30,20 @@ def send_alert(message):
     except Exception as e:
         print("❌ Failed to send Telegram alert:", e)
 
+
 def log_rfid(uid):
     print(f"Family member RFID detected: {uid} at {datetime.datetime.now()}")
+
 
 # ---------------- Alarm Timer Functions ----------------
 def trigger_alarm():
     if armed:
         send_alert("🚨 Door left open too long while system is armed!")
-        socketio.emit("system_alarm", {"status": "triggered", "message": "Door left open while armed!"})
+        socketio.emit(
+            "system_alarm",
+            {"status": "triggered", "message": "Door left open while armed!"},
+        )
+
 
 def check_door():
     global door_open_time
@@ -46,9 +53,11 @@ def check_door():
             send_alert("🚨 Door has been open for more than 3 minutes!")
             door_open_time = None
 
+
 # ---------------- MQTT Setup ----------------
 MQTT_BROKER = "localhost"
 MQTT_TOPIC = "home/#"
+
 
 def on_message(client, userdata, msg):
     global armed, door_open_time
@@ -60,7 +69,10 @@ def on_message(client, userdata, msg):
     # Motion
     if topic == "home/motion" and "detected" in payload and armed:
         send_alert(f"🚨 Motion detected at {datetime.datetime.now()}")
-        socketio.emit("system_alarm", {"status": "warning", "message": "Motion detected while armed."})
+        socketio.emit(
+            "system_alarm",
+            {"status": "warning", "message": "Motion detected while armed."},
+        )
 
     # Door
     if topic == "home/door":
@@ -77,16 +89,19 @@ def on_message(client, userdata, msg):
     if topic == "home/rfid":
         log_rfid(payload)
 
+
 mqtt_client = mqtt.Client()
 mqtt_client.on_message = on_message
 mqtt_client.connect(MQTT_BROKER, 1883)
 mqtt_client.subscribe(MQTT_TOPIC)
 mqtt_client.loop_start()
 
+
 # ---------------- Flask Routes ----------------
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 @app.route("/toggle_security", methods=["POST"])
 def toggle_security():
@@ -106,6 +121,7 @@ def toggle_security():
         return jsonify({"status": "ok", "armed": armed})
     else:
         return jsonify({"status": "error", "message": "Invalid 'armed' value"}), 400
+
 
 # ---------------- Run App ----------------
 if __name__ == "__main__":

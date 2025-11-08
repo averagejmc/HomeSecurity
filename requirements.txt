@@ -1,6 +1,0 @@
-
-paho-mqtt
-flask
-flask-socketio
-requests
-eventlet
