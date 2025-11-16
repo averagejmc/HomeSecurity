@@ -7,7 +7,7 @@ class Sensor:
 
     def get(self):
         return self.value
-    
+
 
 motion = Sensor("Unknown")
 rfid = Sensor("None")

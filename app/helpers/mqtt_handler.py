@@ -18,7 +18,6 @@ def init_mqtt(socketio):
     def log_rfid(uid):
         print(f"Family member RFID detected: {uid} at {datetime.datetime.now()}")
 
-
     def on_message(client, userdata, msg):
         topic = msg.topic
         payload = msg.payload.decode().strip()
@@ -51,7 +50,6 @@ def init_mqtt(socketio):
         if topic == "home/rfid":
             log_rfid(payload)
             rfid.set(payload["value"])
-
 
     mqtt_client = mqtt.Client()
     mqtt_client.on_message = on_message

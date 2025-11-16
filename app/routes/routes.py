@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, request, jsonify
 from app.helpers.tg_alerts import send_alert
 from app.helpers import state_vars
-from app.logger import logger
+from app.logger.logger import get_logs
 
-main_bp = Blueprint('main', __name__)
+main_bp = Blueprint("main", __name__)
 
 
 @main_bp.route("/")
@@ -27,11 +27,12 @@ def toggle_security():
             send_alert("🔒 Security system ARMED.")
 
         return jsonify({"status": "ok", "armed": state_vars.armed})
-    
+
     else:
         return jsonify({"status": "error", "message": "Invalid 'armed' value"}), 400
-    
 
-@main_bp.route("/logs", methods=["POST"])
+
+@main_bp.route("/logs", methods=["GET"])
 def log_data():
-    logs = 
+    logs = get_logs()
+    return jsonify({"status": "ok", "logs": logs})

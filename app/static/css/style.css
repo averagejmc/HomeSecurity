@@ -111,15 +111,31 @@ h2 {
   transform: translateY(-5px);
 }
 
-#motion { background-color: #ff6b6b; }
-#door   { background-color: #4cd137; }
-#rfid   { background-color: #40739e; }
+#motion {
+  background-color: #ff6b6b;
+}
+#door {
+  background-color: #4cd137;
+}
+#rfid {
+  background-color: #40739e;
+}
 
-.motion-detected { background-color: #ff4757 !important; }
-.motion-clear    { background-color: #ff6b6b !important; }
-.door-open       { background-color: #ffa502 !important; }
-.door-closed     { background-color: #4cd137 !important; }
-.rfid-active     { background-color: #3742fa !important; }
+.motion-detected {
+  background-color: #ff4757 !important;
+}
+.motion-clear {
+  background-color: #ff6b6b !important;
+}
+.door-open {
+  background-color: #ffa502 !important;
+}
+.door-closed {
+  background-color: #4cd137 !important;
+}
+.rfid-active {
+  background-color: #3742fa !important;
+}
 
 #arm-btn {
   display: block;
@@ -134,12 +150,12 @@ h2 {
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
-#arm-btn:hover { 
-  background-color: #0056b3; 
+#arm-btn:hover {
+  background-color: #0056b3;
 }
 
-#arm-btn:active { 
-  transform: scale(0.98); 
+#arm-btn:active {
+  transform: scale(0.98);
 }
 
 #logs {
@@ -157,13 +173,30 @@ h2 {
 #log-container {
   background: white;
   border-radius: 8px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
   padding: 20px;
   min-width: 80%;
+  max-height: 400px;
+  overflow-y: auto;
   margin: auto;
   text-align: center;
   font-size: 1em;
   line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.log-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.log-item {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 600px) {

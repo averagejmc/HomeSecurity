@@ -1,5 +1,6 @@
 let armed = false;
 
+// arm the system
 function toggleSecurity() {
   armed = !armed;
   // Update button
@@ -29,6 +30,7 @@ function toggleSecurity() {
     });
 }
 
+// listener for mqtt
 var socket = io();
 socket.on("mqtt_message", function (msg) {
   let topic = msg.data.split(":")[0];
@@ -49,6 +51,7 @@ socket.on("mqtt_message", function (msg) {
   }
 });
 
+// switch tabs
 function showTab(tabId, btn) {
   document
     .querySelectorAll(".tab-content")
@@ -67,17 +70,35 @@ function showTab(tabId, btn) {
   }
 }
 
-function loadLogs() {
-  fetch("/logs")
-    .then((res) => res.json())
-    .then((data) => {
-      const container = document.getElementById("log-container");
-      container.innerHTML = data.logs.length
-        ? data.logs.map((log) => `<p>${log}</p>`).join("")
-        : "<p>No logs available.</p>";
-    })
-    .catch(() => {
-      document.getElementById("log-container").innerText =
-        "Failed to load logs.";
-    });
+// load logs
+async function loadLogs() {
+  const res = await fetch("/logs");
+  const data = await res.json();
+
+  const container = document.getElementById("log-container");
+  container.innerHTML = ""; // clear previous
+
+  if (!data.logs.length) {
+    container.innerHTML = "<p>No logs yet.</p>";
+    return;
+  }
+
+  const list = document.createElement("ul");
+  list.classList.add("log-list");
+
+  data.logs.forEach((log) => {
+    const item = document.createElement("li");
+    item.classList.add("log-item");
+    item.innerHTML = `
+      <strong>${log.timestamp}</strong><br>
+      Armed: ${log.armed}<br>
+      Motion: ${log.motion}<br>
+      Door: ${log.door}<br>
+      RFID: ${log.rfid}<br>
+      Door Open Time: ${log.door_open_time_seconds}s
+    `;
+    list.appendChild(item);
+  });
+
+  container.appendChild(list);
 }
