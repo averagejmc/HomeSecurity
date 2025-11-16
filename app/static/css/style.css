@@ -1,0 +1,264 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px;
+  margin: 0;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1em;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background-color: #b2d4f9;
+  color: #333;
+  font-weight: 600;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+  background-color: #0056b3;
+  color: white;
+}
+
+.tab-container {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+}
+
+.tab-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.tab-content.active {
+  display: flex;
+  opacity: 1;
+}
+
+#dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#system-status {
+  width: 100%;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  min-width: 70%;
+  justify-items: center;
+  margin: 30px 0 40px 0;
+}
+
+.sensor-box {
+  padding: 30px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.3em;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.4s ease, transform 0.2s ease;
+}
+
+.sensor-box:hover {
+  transform: translateY(-5px);
+}
+
+#motion {
+  background-color: #ff6b6b;
+}
+#door {
+  background-color: #4cd137;
+}
+#rfid {
+  background-color: #40739e;
+}
+
+.motion-detected {
+  background-color: #ff4757 !important;
+}
+.motion-clear {
+  background-color: #ff6b6b !important;
+}
+.door-open {
+  background-color: #ffa502 !important;
+}
+.door-closed {
+  background-color: #4cd137 !important;
+}
+.rfid-active {
+  background-color: #3742fa !important;
+}
+
+#arm-btn {
+  display: block;
+  padding: 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#arm-btn:hover {
+  background-color: #0056b3;
+}
+
+#arm-btn:active {
+  transform: scale(0.98);
+}
+
+#logs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.log-title {
+  font-size: 1.4em;
+  text-align: center;
+}
+
+#log-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  min-width: 80%;
+  max-height: 400px;
+  overflow-y: auto;
+  margin: auto;
+  text-align: center;
+  font-size: 1em;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.log-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.log-item {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  #system-status {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 80%;
+    min-height: 40vh;
+  }
+
+  .sensor-box {
+    font-size: 1.1em;
+    width: 100%;
+  }
+
+  #arm-btn {
+    font-size: 1.1em;
+    max-width: 80%;
+  }
+
+  .tabs {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .tab-btn {
+    flex: 1;
+    padding: 12px 0;
+    max-width: 150px;
+  }
+
+  #logs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .log-title {
+    font-size: 1.1em;
+  }
+
+  #log-container {
+    min-width: 90%;
+    font-size: 0.95em;
+    padding: 15px;
+  }
+}
