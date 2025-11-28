@@ -9,4 +9,4 @@ if __name__ == "__main__":
 
     socketio.start_background_task(check_door)
     socketio.start_background_task(log_event)
-    socketio.run(app, host="0.0.0.0", port=5000, debug=True)
+    socketio.run(app, host="0.0.0.0", port=5001, debug=True)
