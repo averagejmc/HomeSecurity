@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomeSecurity</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+  </head>
+
+  <body>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="auto">AUTO</button>
+      <button class="tab-btn" data-tab="maintenance">MAINTENANCE</button>
+      <button class="tab-btn" data-tab="sleep">SLEEP</button>
+    </div>
+
+    <div class="card">
+      <div class="tab-container">
+        <div id="auto" class="tab-content active">
+          <h2>Auto Mode</h2>
+          <div id="dashboard">
+            <div id="system-status" class="status">
+              System is <span style="color: rgb(30, 99, 30)">DISARMED</span>
+            </div>
+            <div class="dashboard">
+              <div id="motion" class="sensor-box">Motion: Unknown</div>
+              <div id="door" class="sensor-box">Door: Unknown</div>
+              <div id="rfid" class="sensor-box">Last RFID: None</div>
+            </div>
+            <button id="arm-btn">Arm System</button>
+          </div>
+
+          <div id="logs">
+            <h2 class="log-title">Event Logs</h2>
+            <div id="log-container">Loading logs...</div>
+          </div>
+        </div>
+
+        <div id="maintenance" class="tab-content">
+          <h2>Maintenance Mode</h2>
+          <p>System diagnostics and health information.</p>
+
+          <ul>
+            <li>Door Sensor: OK</li>
+            <li>Motion Sensor: OK</li>
+            <li>RFID Reader: OK</li>
+            <li>MQTT Status: Connected</li>
+          </ul>
+
+          <button id="ping-btn">Ping Sensors</button>
+        </div>
+
+        <div id="sleep" class="tab-content">
+          <h2>Sleep Mode</h2>
+          <p>Sensors are minimized. Alerts are temporarily disabled.</p>
+          <p>Status: Low-power monitoring active.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
