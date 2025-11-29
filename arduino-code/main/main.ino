@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <SPI.h>
@@ -111,4 +112,20 @@ void loop() {
         client.publish("home/rfid", uid.c_str());
     }
   }
+=======
+#include "SystemController.h"
+
+const char* ssid = "Forger Hideout";
+const char* password = "AnyaLoidYor";
+const char* mqtt_server = "192.168.68.60";
+
+SystemController controller(ssid, password, mqtt_server);
+
+void setup() {
+  controller.begin();
+}
+
+void loop() {
+  controller.loop();
+>>>>>>> 27dc04e0428cb78814e1be60a14c747cebfc24e0
 }
