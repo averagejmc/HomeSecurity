@@ -51,6 +51,15 @@ def init_mqtt(socketio):
             log_rfid(payload)
             rfid.set(payload["value"])
 
+        
+        if topic == "home/mode":
+            mode = payload.lower()
+            if mode in ["auto", "maintenance", "sleep"]:
+                state_vars.mode = mode
+                print(f"Mode changed to {mode.upper()}.")
+                socketio.emit("mode_update", {"mode": state_vars.mode})
+
+
     mqtt_client = mqtt.Client()
     mqtt_client.on_message = on_message
     mqtt_client.connect(MQTT_BROKER, 1883)
