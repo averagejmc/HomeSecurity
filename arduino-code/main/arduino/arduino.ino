@@ -46,6 +46,9 @@ void setup() {
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, LOW);
 
+  pinMode(2, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(2), switchMode, FALLING);
+
   doorSensor.begin();
   motionSensor.begin();
   rfidSensor.begin();
