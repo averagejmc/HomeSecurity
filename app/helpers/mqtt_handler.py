@@ -13,7 +13,6 @@ def init_mqtt(socketio):
     def trigger_alarm():
         if state_vars.armed:
             send_alert("🚨 Door left open too long while system is armed!")
-            socketio.emit("system_alarm", {"status": "triggered"})
 
     def log_rfid(uid):
         print(f"Family member RFID detected: {uid} at {datetime.datetime.now()}")
@@ -21,16 +20,16 @@ def init_mqtt(socketio):
     def on_message(client, userdata, msg):
         topic = msg.topic
         payload = msg.payload.decode().strip()
-
+        mode_map = {
+            "0": "auto",
+            "1": "maintenance",
+            "2": "sleep"
+}
         socketio.emit("mqtt_message", {"data": f"{topic}: {payload}"})
 
         # Motion
         if topic == "home/motion" and "detected" in payload and state_vars.armed:
             send_alert(f"🚨 Motion detected at {datetime.datetime.now()}")
-            socketio.emit(
-                "system_alarm",
-                {"status": "warning", "message": "Motion detected while armed."},
-            )
             motion.set(payload["value"])
 
         # Door
@@ -53,7 +52,7 @@ def init_mqtt(socketio):
 
         
         if topic == "home/mode":
-            mode = payload.lower()
+            mode = mode_map.get(payload)
             if mode in ["auto", "maintenance", "sleep"]:
                 state_vars.mode = mode
                 print(f"Mode changed to {mode.upper()}.")
