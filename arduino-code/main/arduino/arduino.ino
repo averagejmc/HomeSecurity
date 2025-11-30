@@ -16,9 +16,6 @@ RFIDSensor rfidSensor(SS_PIN, RST_PIN);
 
 unsigned long lastLooptTime = 0;
 const unsigned long loopInterval = 2000;
-unsigned long lastBlink = 0;
-const unsigned long blinkInterval = 500;
-bool ledState = LOW;
 
 void setup() {
   Serial.begin(115200);
@@ -31,30 +28,22 @@ void setup() {
 }
 
 void loop() {
-  if (!client.connected()) reconnectMQTT();
-  client.loop();
+  motionSensor.update();
+  doorSensor.update();
 
-  if (millis() - lastLooptTime => loopInterval) {
+  String uid = rfidSensor.read();
+
+  if (millis() - lastLooptTime >= loopInterval) {
     lastLooptTime = millis();
 
-    motionSensor.update();
-    if (motionSensor.hasStateChanged()) {
-      String motionMsg = motionSensor.getMessage();
-      Serial.println(motionMsg);
-      client.publish("home/motion", motionMsg.c_str());
-    }
+    String motionState = motionSensor.getMessage();
+    String doorState = doorSensor.getMessage();
 
-    doorSensor.update();
-    if (doorSensor.hasStateChanged()) {
-        String doorMsg = doorSensor.getMessage();
-        Serial.println(doorMsg);
-        client.publish("home/door", doorMsg.c_str());
-    }
+    // print data in serial in format 'mode,motion,door,rfid'
+    String dataLine = motionState + "," +
+                                  doorState + "," +
+                                  uid;
 
-    String uid = rfidSensor.read();
-    if (!uid.isEmpty()) {
-        Serial.println("RFID UID: " + uid);
-        client.publish("home/rfid", uid.c_str());
-    }
+    Serial.println(dataLine);
   }
 }
