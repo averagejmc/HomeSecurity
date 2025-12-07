@@ -348,6 +348,213 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:Conn_01x03_Socket"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x03_Socket"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x03, script generated"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x03_Socket_1_1"
+				(polyline
+					(pts
+						(xy -1.27 2.54) (xy -0.508 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -2.54) (xy -0.508 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 2.032)
+					(mid -0.5058 2.54)
+					(end 0 3.048)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -0.508)
+					(mid -0.5058 0)
+					(end 0 0.508)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -3.048)
+					(mid -0.5058 -2.54)
+					(end 0 -2.032)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:Conn_01x04_Pin"
 			(pin_names
 				(offset 1.016)
@@ -2446,143 +2653,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Regulator_Linear:LM1117T-3.3"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at -3.81 3.175 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "LM1117T-3.3"
-				(at 0 3.175 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm1117.pdf"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "800mA Low-Dropout Linear Regulator, 3.3V fixed output, TO-220"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "linear regulator ldo fixed positive"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "TO?220*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "LM1117T-3.3_0_1"
-				(rectangle
-					(start -5.08 -5.08)
-					(end 5.08 1.905)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "LM1117T-3.3_1_1"
-				(pin power_in line
-					(at -7.62 0 0)
-					(length 2.54)
-					(name "VI"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_out line
-					(at 7.62 0 180)
-					(length 2.54)
-					(name "VO"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Regulator_Linear:LM7805_TO220"
 			(pin_names
 				(offset 0.254)
@@ -3190,12 +3260,6 @@
 		(uuid "1dbdb20c-34dd-4860-87eb-504dff39c142")
 	)
 	(junction
-		(at 83.82 110.49)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2731088f-96f6-4e69-9571-3d5538f368f2")
-	)
-	(junction
 		(at 170.18 54.61)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3208,22 +3272,10 @@
 		(uuid "333eaa80-0f2b-4ae2-b8b9-95cce68b6a5d")
 	)
 	(junction
-		(at 68.58 101.6)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "35c89623-046a-4077-aac7-8fe21845bc3d")
-	)
-	(junction
 		(at 119.38 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "48f3cbea-57fa-4191-9f5e-7fd80d908cae")
-	)
-	(junction
-		(at 96.52 101.6)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5e70d423-98c0-4afc-8783-ef502e6b9ecb")
 	)
 	(junction
 		(at 93.98 78.74)
@@ -3653,16 +3705,6 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 101.6) (xy 76.2 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "44b98345-ec41-43ed-9e94-3fbb31083be3")
-	)
-	(wire
-		(pts
 			(xy 180.34 110.49) (xy 180.34 114.3)
 		)
 		(stroke
@@ -3803,16 +3845,6 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 109.22) (xy 83.82 110.49)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "69dfcdbc-d9a5-489a-a0fe-e8104c85a124")
-	)
-	(wire
-		(pts
 			(xy 209.55 60.96) (xy 214.63 60.96)
 		)
 		(stroke
@@ -3830,16 +3862,6 @@
 			(type default)
 		)
 		(uuid "6bf6cab0-87ff-43b7-872e-e2ac5cbb9eb8")
-	)
-	(wire
-		(pts
-			(xy 83.82 110.49) (xy 83.82 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6fa95f5b-7cf7-4f0e-a639-6a7daa24fa02")
 	)
 	(wire
 		(pts
@@ -3973,16 +3995,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 101.6) (xy 96.52 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8c5ed572-2360-4e19-bf3b-0517b3709bbc")
-	)
-	(wire
-		(pts
 			(xy 144.78 101.6) (xy 149.86 101.6)
 		)
 		(stroke
@@ -4103,6 +4115,16 @@
 	)
 	(wire
 		(pts
+			(xy 80.01 109.22) (xy 80.01 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a7014a40-718d-40c0-81d8-b24285fc725c")
+	)
+	(wire
+		(pts
 			(xy 76.2 139.7) (xy 76.2 120.65)
 		)
 		(stroke
@@ -4110,16 +4132,6 @@
 			(type default)
 		)
 		(uuid "a9b0bd70-cfcd-4025-9dc0-27295eeeb275")
-	)
-	(wire
-		(pts
-			(xy 83.82 110.49) (xy 96.52 110.49)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ad7f8682-ca24-4e72-b6fd-f3bcf2ead26f")
 	)
 	(wire
 		(pts
@@ -4190,26 +4202,6 @@
 			(type default)
 		)
 		(uuid "be1490ee-ad81-4bd6-ba0f-dc4bb78652c5")
-	)
-	(wire
-		(pts
-			(xy 91.44 101.6) (xy 96.52 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c1f60ab6-213b-448c-a0fd-bf6bfeb0c2d5")
-	)
-	(wire
-		(pts
-			(xy 68.58 101.6) (xy 68.58 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c46caf39-e51d-4582-aa06-cf151dd13e27")
 	)
 	(wire
 		(pts
@@ -4323,16 +4315,6 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 110.49) (xy 83.82 110.49)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d9b1cd32-568f-4667-bf02-8b3106e64bb3")
-	)
-	(wire
-		(pts
 			(xy 132.08 38.1) (xy 132.08 40.64)
 		)
 		(stroke
@@ -4393,26 +4375,6 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 101.6) (xy 68.58 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e3416bd1-be0b-4e96-8348-919ff590d45d")
-	)
-	(wire
-		(pts
-			(xy 96.52 101.6) (xy 105.41 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e50f4081-4b02-4359-9f2f-8f6e1c84b2b4")
-	)
-	(wire
-		(pts
 			(xy 186.69 54.61) (xy 186.69 62.23)
 		)
 		(stroke
@@ -4420,6 +4382,16 @@
 			(type default)
 		)
 		(uuid "e64c3995-3a35-4ba6-81d5-0ca4b0a74629")
+	)
+	(wire
+		(pts
+			(xy 77.47 110.49) (xy 77.47 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e65c5a4e-b188-4f4a-a549-d45342645e8b")
 	)
 	(wire
 		(pts
@@ -4792,6 +4764,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:VCC")
+		(at 80.01 110.49 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "12389d01-5611-4746-a74c-949a610e5876")
+		(property "Reference" "#PWR050"
+			(at 80.01 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "3.3V"
+			(at 80.01 115.57 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 80.01 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 80.01 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 80.01 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a9123cf3-daef-453d-8736-05674a3ce952")
+		)
+		(instances
+			(project "diy_arduino_esp01"
+				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
+					(reference "#PWR050")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 214.63 58.42 90)
 		(unit 1)
@@ -4853,72 +4890,6 @@
 			(project "diy_arduino_esp01"
 				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
 					(reference "#PWR023")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 83.82 114.3 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1a250092-18f3-4317-8c2f-4e7c883701de")
-		(property "Reference" "#PWR049"
-			(at 83.82 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 83.82 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 83.82 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 83.82 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 83.82 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6902bb4d-0b9b-4411-a994-7dc8ba8a3f93")
-		)
-		(instances
-			(project "diy_arduino_esp01"
-				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
-					(reference "#PWR049")
 					(unit 1)
 				)
 			)
@@ -5415,77 +5386,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Regulator_Linear:LM1117T-3.3")
-		(at 83.82 101.6 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2a0b80fa-3f55-4cc2-a57c-08cf6ad6f95e")
-		(property "Reference" "U4"
-			(at 83.82 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LM1117T-3.3"
-			(at 83.82 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220F-3_Vertical"
-			(at 83.82 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm1117.pdf"
-			(at 83.82 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "800mA Low-Dropout Linear Regulator, 3.3V fixed output, TO-220"
-			(at 83.82 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f4ac6842-8688-42f5-a4a5-224919673589")
-		)
-		(pin "2"
-			(uuid "03bf27c4-5453-4d87-ba59-c60197c2f13a")
-		)
-		(pin "3"
-			(uuid "e4111243-9c58-4f0a-9d65-019e5e0230e1")
-		)
-		(instances
-			(project ""
-				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
-					(reference "U4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:VCC")
 		(at 149.86 99.06 270)
 		(unit 1)
@@ -5616,75 +5516,6 @@
 			(project "diy_arduino_esp01"
 				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
 					(reference "R6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized")
-		(at 68.58 106.68 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2ca62c96-5e03-48db-88fd-470c2464c16c")
-		(property "Reference" "C5"
-			(at 63.754 103.632 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "16V 10uF"
-			(at 64.262 108.966 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm"
-			(at 69.5452 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 68.58 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Polarized capacitor"
-			(at 68.58 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7f38cac3-5c62-4ee5-9f35-9f736f2c01f5")
-		)
-		(pin "2"
-			(uuid "834ac813-c1c1-4cd3-8cf5-368519ee3cab")
-		)
-		(instances
-			(project "diy_arduino_esp01"
-				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
-					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -6494,73 +6325,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:VCC")
-		(at 105.41 101.6 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5aba2d65-2e6d-42b9-b359-2d9232c7b8cc")
-		(property "Reference" "#PWR025"
-			(at 101.6 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3.3V"
-			(at 109.22 101.5999 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 105.41 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 105.41 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 105.41 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "dc49c59b-99d6-4165-9a33-716f8df26d2d")
-		)
-		(instances
-			(project "diy_arduino_esp01"
-				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
-					(reference "#PWR025")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Polarized")
 		(at 67.31 83.82 0)
 		(unit 1)
@@ -6624,6 +6388,77 @@
 			(project "diy_arduino_esp01"
 				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
 					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x03_Socket")
+		(at 80.01 104.14 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6269ff0f-7c28-4964-81df-64bc07b206e3")
+		(property "Reference" "J1"
+			(at 80.01 99.06 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "3.3v"
+			(at 80.01 101.6 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical"
+			(at 80.01 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 80.01 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 80.01 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "94fe7bdd-0fbf-43d5-8798-48be90980723")
+		)
+		(pin "2"
+			(uuid "967e87e4-8f56-4acc-a818-7e57775b8db9")
+		)
+		(pin "3"
+			(uuid "36c95f66-6ebc-463a-9f45-c849d9ebaa10")
+		)
+		(instances
+			(project ""
+				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
+					(reference "J1")
 					(unit 1)
 				)
 			)
@@ -8964,6 +8799,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 82.55 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bc33225f-573a-4d42-800d-a67afbb623fc")
+		(property "Reference" "#PWR061"
+			(at 82.55 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 82.55 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 82.55 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 82.55 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 82.55 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "547a083e-2347-471f-87b8-8d677e59e19c")
+		)
+		(instances
+			(project "diy_arduino_esp01"
+				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
+					(reference "#PWR061")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:VCC")
 		(at 215.9 97.79 270)
 		(unit 1)
@@ -9369,6 +9269,71 @@
 			(project "diy_arduino_esp01"
 				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
 					(reference "C7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 77.47 110.49 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c795db03-f454-4d09-8662-1a53006bd916")
+		(property "Reference" "#PWR020"
+			(at 77.47 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "5V"
+			(at 77.47 115.57 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 77.47 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 77.47 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 77.47 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "94058c62-485f-474f-8066-466b61534e03")
+		)
+		(instances
+			(project "diy_arduino_esp01"
+				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -9982,73 +9947,6 @@
 	)
 	(symbol
 		(lib_id "power:VCC")
-		(at 59.69 101.6 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "db9ffac9-c1e5-4785-ab5a-783d8c922b2f")
-		(property "Reference" "#PWR050"
-			(at 63.5 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "5V"
-			(at 55.88 101.5999 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 59.69 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 59.69 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 59.69 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "48908930-8524-4235-8fa7-c986c8d5bb9a")
-		)
-		(instances
-			(project "diy_arduino_esp01"
-				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
-					(reference "#PWR050")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VCC")
 		(at 149.86 91.44 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10511,75 +10409,6 @@
 			(project "diy_arduino_esp01"
 				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
 					(reference "#PWR035")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized")
-		(at 96.52 106.68 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f60fd175-3c68-4aa1-a65e-966b9af05add")
-		(property "Reference" "C6"
-			(at 94.488 103.378 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "16V 10uF"
-			(at 100.584 109.474 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm"
-			(at 97.4852 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 96.52 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Polarized capacitor"
-			(at 96.52 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "4dd82668-99b3-4aec-bb54-ef4fc6cd943e")
-		)
-		(pin "2"
-			(uuid "9133c0ce-ce54-4287-9156-efa9cd2115b0")
-		)
-		(instances
-			(project "diy_arduino_esp01"
-				(path "/e3908a11-c66b-4a7b-aecf-f5542b242cbd"
-					(reference "C6")
 					(unit 1)
 				)
 			)
