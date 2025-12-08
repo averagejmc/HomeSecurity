@@ -74,7 +74,20 @@ async function loadLogs() {
 
 // listener for mqtt
 var socket = io();
+socket.on("connect", function() {
+    console.log("✅ Socket connected! ID:", socket.id);
+});
+
+socket.on("disconnect", function() {
+    console.log("❌ Socket disconnected");
+});
+
+socket.on("connect_error", (err) => {
+  console.log("⚠️ Connection failed:", err.message);
+});
+
 socket.on("mqtt_message", function (msg) {
+  console.log("received mqtt message")
   let [topic, payload] = msg.data.split(":");
   payload = payload.trim();
 
@@ -97,10 +110,10 @@ socket.on("mqtt_message", function (msg) {
 });
 
 // for mode switching
-// socket.on("mode_update", function(data) {
-//   const mode = data.mode; // 'auto', 'maintenance', 'sleep'
-//   showModeTab(mode);  // a new function to switch tabs
-// });
+socket.on("mode_update", function(data) {
+  const mode = data.mode; // 'auto', 'maintenance', 'sleep'
+  showTab(mode);  // a new function to switch tabs
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   // Arm button listener

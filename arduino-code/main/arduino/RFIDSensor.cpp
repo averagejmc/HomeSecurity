@@ -27,5 +27,6 @@ String RFIDSensor::read() {
   _mfrc522.PICC_HaltA();
   _mfrc522.PCD_StopCrypto1();
 
+  Serial.println(uidString);
   return uidString;
 }
