@@ -1,3 +1,5 @@
 .venv 
 
 __pycache__
+
+schematic/diy_arduino_esp01/diy_arduino_esp01-backups

@@ -6,15 +6,18 @@
 
 class MQTTClientHandler {
 public:
-    MQTTClientHandler(const char* server, uint16_t port = 1883);
+    MQTTClientHandler(const char* ssid, const char* password, const char* server, uint16_t port = 1883);
     
     void begin();
+    void connectWifi();
     void loop();
     void publish(const char* topic, const char* message);
     
 private:
     void reconnect();
 
+    const char* ssid;
+    const char* password;
     const char* server;
     uint16_t port;
 

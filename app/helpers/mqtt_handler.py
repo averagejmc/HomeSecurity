@@ -18,46 +18,47 @@ def init_mqtt(socketio):
         print(f"Family member RFID detected: {uid} at {datetime.datetime.now()}")
 
     def on_message(client, userdata, msg):
-        topic = msg.topic
-        payload = msg.payload.decode().strip()
-        mode_map = {
-            "0": "auto",
-            "1": "maintenance",
-            "2": "sleep"
-}
-        socketio.emit("mqtt_message", {"data": f"{topic}: {payload}"})
+        try:
+            topic = msg.topic
+            payload = msg.payload.decode().strip()
+            print(f"DEBUG: received mqtt message: {topic}:{payload}")
 
-        # Motion
-        if topic == "home/motion" and "detected" in payload and state_vars.armed:
-            send_alert(f"🚨 Motion detected at {datetime.datetime.now()}")
-            motion.set(payload["value"])
+            socketio.emit("mqtt_message", {"data": f"{topic}:{payload}"})
 
-        # Door
-        if topic == "home/door":
-            if "open" in payload:
-                if state_vars.door_open_time is None:
-                    state_vars.door_open_time = datetime.datetime.now()
-                    print("Door opened, monitoring...")
-                    Timer(state_vars.ALERT_DELAY_SECONDS, trigger_alarm).start()
-                    door.set(payload["value"])
-            elif "closed" in payload:
-                state_vars.door_open_time = None
-                print("Door closed, reset timer.")
-                door.set(payload["value"])
+            if topic == "home/motion":
+                motion.set(payload)
+                if payload == "Motion detected!" and state_vars.armed:
+                    send_alert(f"🚨 Motion detected at {datetime.datetime.now()}")
 
-        # RFID
-        if topic == "home/rfid":
-            log_rfid(payload)
-            rfid.set(payload["value"])
+            elif topic == "home/door":
+                door.set(payload)
+                if payload == "Door open":
+                    if state_vars.door_open_time is None:
+                        state_vars.door_open_time = datetime.datetime.now()
+                        print("Door opened. Timer started.")
+                        Timer(state_vars.ALERT_DELAY_SECONDS, trigger_alarm).start()
+                
+                elif payload == "Door closed!":
+                    if state_vars.door_open_time is not None:
+                        print("Door closed. Timer reset.")
+                        state_vars.door_open_time = None
 
-        
-        if topic == "home/mode":
-            mode = mode_map.get(payload)
-            if mode in ["auto", "maintenance", "sleep"]:
-                state_vars.mode = mode
-                print(f"Mode changed to {mode.upper()}.")
-                socketio.emit("mode_update", {"mode": state_vars.mode})
+            elif topic == "home/rfid":
+                rfid.set(payload)
+                if payload != "No RFID":
+                    log_rfid(payload)
 
+            elif topic == "home/mode":
+                mode_map = {"0": "auto", "1": "maintenance", "2": "sleep"}
+                if payload in mode_map:
+                    new_mode = mode_map[payload]
+                    if state_vars.mode != new_mode:
+                        state_vars.mode = new_mode
+                        print(f"Mode updated to: {new_mode}")
+                        socketio.emit("mode_update", {"mode": state_vars.mode})
+
+        except Exception as e:
+            print(f"Error parsing MQTT message: {e}")
 
     mqtt_client = mqtt.Client()
     mqtt_client.on_message = on_message

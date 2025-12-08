@@ -3,7 +3,11 @@
 
 #include "MqttHandler.h"  
 
-MQTTClientHandler mqtt("192.168.69.60");
+const char* SSID = "Your WiFi SSID here";
+const char* PASSWORD = "Your WiFi Password here";
+const char* MQTT_SERVER = "IP of the machine running the mqtt server";
+
+MQTTClientHandler mqtt(SSID, PASSWORD, MQTT_SERVER);
 
 String incoming = "";
 
@@ -11,7 +15,7 @@ void setup() {
   Serial.begin(9600);
   mqtt.begin();
 
-  Serial.println("ESP01 MQTT BRIDGE READY");
+  Serial.println("ESP01: ESP01 MQTT BRIDGE READY");
 }
 
 void loop() {
