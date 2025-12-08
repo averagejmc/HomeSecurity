@@ -3,9 +3,9 @@
 
 #include "MqttHandler.h"  
 
-const char* SSID = "Your WiFi SSID here";
-const char* PASSWORD = "Your WiFi Password here";
-const char* MQTT_SERVER = "IP of the machine running the mqtt server";
+const char* SSID = "Forger_Hideout_IoT";
+const char* PASSWORD = "AnyaLoidYor";
+const char* MQTT_SERVER = "192.168.68.55";
 
 MQTTClientHandler mqtt(SSID, PASSWORD, MQTT_SERVER);
 

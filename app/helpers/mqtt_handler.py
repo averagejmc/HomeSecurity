@@ -37,7 +37,7 @@ def init_mqtt(socketio):
                         state_vars.door_open_time = datetime.datetime.now()
                         print("Door opened. Timer started.")
                         Timer(state_vars.ALERT_DELAY_SECONDS, trigger_alarm).start()
-                
+
                 elif payload == "Door closed!":
                     if state_vars.door_open_time is not None:
                         print("Door closed. Timer reset.")

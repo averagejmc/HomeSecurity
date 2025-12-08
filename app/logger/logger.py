@@ -16,37 +16,43 @@ def init_db():
             door_open_time_seconds INTEGER,
             motion TEXT,
             door TEXT,
-            rfid TEXT
+            rfid TEXT,
+            mode TEXT
         )"""
     )
     conn.commit()
     conn.close()
 
+    print("logger: database initialized")
+
 
 # Function to log an event
 def log_event():
+    from app import socketio
+
     while True:
+        socketio.sleep(600)
+
         from app.helpers.sensor_values import motion, rfid, door
         from app.helpers import state_vars
 
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
         c.execute(
-            "INSERT INTO snapshots (armed, door_open_time, motion, door, rfid) VALUES (?, ?, ?, ?, ?, ?)",
+            "INSERT INTO snapshots (armed, door_open_time_seconds, motion, door, rfid, mode) VALUES (?, ?, ?, ?, ?, ?)",
             (
                 state_vars.armed,
                 state_vars.door_open_time,
                 motion.get(),
                 door.get(),
                 rfid.get(),
+                state_vars.mode,
             ),
         )
         conn.commit()
         conn.close()
 
-        from flask_socketio import SocketIO
-
-        SocketIO.sleep(3600)
+        print("logger: event logged")
 
 
 # Function to retrieve logs
