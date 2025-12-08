@@ -1,3 +1,7 @@
+import eventlet
+
+eventlet.monkey_patch()
+
 from app import create_app, socketio
 from app.logger.logger import log_event
 
@@ -9,4 +13,4 @@ if __name__ == "__main__":
 
     socketio.start_background_task(check_door)
     socketio.start_background_task(log_event)
-    socketio.run(app, host="0.0.0.0", port=5000, debug=True)
+    socketio.run(app, host="0.0.0.0", port=5000, debug=True, use_reloader=False)
