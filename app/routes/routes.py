@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, jsonify
 from app.helpers.tg_alerts import send_alert
 from app.helpers import state_vars
 from app.logger.logger import get_logs
+from app.helpers.sensor_values import ping_sensors
 
 main_bp = Blueprint("main", __name__)
 
@@ -36,3 +37,9 @@ def toggle_security():
 def log_data():
     logs = get_logs()
     return jsonify({"status": "ok", "logs": logs})
+
+
+@main_bp.route("/ping", methods=["GET"])
+def ping():
+    data = ping_sensors()
+    return jsonify(data)

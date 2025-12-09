@@ -9,6 +9,15 @@ class Sensor:
         return self.value
 
 
-motion = Sensor("Unknown")
-rfid = Sensor("None")
-door = Sensor("Unknown")
+motion = Sensor("No motion")
+rfid = Sensor("No RFID")
+door = Sensor("Door closed!")
+
+def ping_sensors():
+    latest_values = {
+                "motion": motion.get(),
+                "door": door.get(),
+                "rfid": rfid.get()
+            }
+    
+    return latest_values

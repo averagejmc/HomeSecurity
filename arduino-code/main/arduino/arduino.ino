@@ -106,6 +106,11 @@ void setup() {
   pinMode(solenoidPin, OUTPUT);
 
   Serial.println(F("ARDUINO: System Ready"));
+
+  power_adc_disable();
+  power_twi_disable();
+  ACSR |= (1 << ACD);
+  power_timer2_disable();
 }
 
 void checkSequence() {
