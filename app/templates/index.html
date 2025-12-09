@@ -42,13 +42,13 @@
 
         <div id="maintenance" class="tab-content">
           <h2>Maintenance Mode</h2>
-          <p>System diagnostics and health information.</p>
+          <p id="last-ping">Last Ping: (none)</p>
 
           <ul>
-            <li>Door Sensor: OK</li>
-            <li>Motion Sensor: OK</li>
-            <li>RFID Reader: OK</li>
-            <li>MQTT Status: Connected</li>
+            <li id="maint-door">Door Sensor: -</li>
+            <li id="maint-motion">Motion Sensor: -</li>
+            <li id="maint-rfid">RFID Reader: -</li>
+            <li id="maint-mqtt">MQTT Status: Connected</li>
           </ul>
 
           <button id="ping-btn">Ping Sensors</button>

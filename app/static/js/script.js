@@ -72,14 +72,32 @@ async function loadLogs() {
   container.appendChild(list);
 }
 
-// listener for mqtt
-var socket = io();
-socket.on("connect", function() {
-    console.log("✅ Socket connected! ID:", socket.id);
+document.getElementById("ping-btn").addEventListener("click", async () => {
+  const res = await fetch("/ping");
+  const data = await res.json();
+
+  document.getElementById("maint-motion").innerText =
+    "Motion Sensor: " + data.motion;
+
+  document.getElementById("maint-door").innerText = "Door Sensor: " + data.door;
+
+  document.getElementById("maint-rfid").innerText =
+    "RFID Reader: " + (data.rfid || "None");
+
+  document.getElementById("last-ping").innerText =
+    "Last Ping: " + new Date().toLocaleString();
+
+  console.log("Pinged sensors:", data);
 });
 
-socket.on("disconnect", function() {
-    console.log("❌ Socket disconnected");
+// listener for mqtt
+var socket = io();
+socket.on("connect", function () {
+  console.log("✅ Socket connected! ID:", socket.id);
+});
+
+socket.on("disconnect", function () {
+  console.log("❌ Socket disconnected");
 });
 
 socket.on("connect_error", (err) => {
@@ -87,7 +105,7 @@ socket.on("connect_error", (err) => {
 });
 
 socket.on("mqtt_message", function (msg) {
-  console.log("received mqtt message")
+  console.log("received mqtt message");
   let [topic, payload] = msg.data.split(":");
   payload = payload.trim();
 
@@ -110,9 +128,9 @@ socket.on("mqtt_message", function (msg) {
 });
 
 // for mode switching
-socket.on("mode_update", function(data) {
+socket.on("mode_update", function (data) {
   const mode = data.mode; // 'auto', 'maintenance', 'sleep'
-  showTab(mode);  // a new function to switch tabs
+  showTab(mode); // a new function to switch tabs
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -124,5 +142,5 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => showTab(btn.dataset.tab));
   });
 
-  showTab("auto"); 
+  showTab("auto");
 });
